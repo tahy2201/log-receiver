@@ -1,7 +1,8 @@
 # log-receiver
 
 いろんなところからログ(trace-log-a)を受け取ってBigQueryに格納していくサンプル
-Client -> GAE[このApp] -> Pub/Sub -> data-workflow -> BigQuery
+
+`Client -> GAE[このApp] -> Pub/Sub -> data-workflow -> BigQuery`
 
 ### logalテスト
 ```
