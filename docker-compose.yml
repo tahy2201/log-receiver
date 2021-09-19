@@ -1,0 +1,31 @@
+  
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./
+      dockerfile: front/deployments/front/Dockerfile
+    tty: true
+    environment:
+      - CLOUDSDK_PYTHON=python2.7
+      - PUBSUB_PROJECT_ID=lcl-log-receiver
+    volumes: 
+      - ~/.config:/root/.config
+      - ./front:/usr/local/front
+      - ./schema:/usr/local/schema
+    ports:
+      - "21108:8080"
+  
+  pubsub:
+    build:
+      context: ./
+      dockerfile: front/deployments/pubsub-emu/Dockerfile
+    tty: true
+    environment:
+      - PUBSUB_EMULATOR_HOST=0.0.0.0:8085
+    volumes: 
+      - ./front/deployments/pubsub-emu/entrypoint.sh:/root/docker-entrypoint.sh
+    entrypoint: /root/docker-entrypoint.sh
+    ports:
+      - "21109:8085"
+  

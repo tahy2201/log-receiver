@@ -1,0 +1,7 @@
+[
+    {"name":"time","type":"TIMESTAMP","mode":"REQUIRED"},
+    {"name":"user_id","type":"STRING"},
+    {"name":"url","type":"STRING"},
+    {"name":"referrer","type":"STRING"},
+    {"name":"test_type","type":"INTEGER"}
+]

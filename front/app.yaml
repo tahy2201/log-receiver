@@ -1,0 +1,14 @@
+runtime: go115  # or another supported version
+
+service: log-receiver
+
+main: ./cmd/main.go
+
+instance_class: F2
+
+env_variables:
+  BUCKET_NAME: "example-gcs-bucket"
+
+handlers:
+- url: /.*
+  script: auto
